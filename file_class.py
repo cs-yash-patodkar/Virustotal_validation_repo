@@ -20,7 +20,7 @@ class File:
             number_of_hits+=1
             if(number_of_hits==2):
                 x=input("It is taking longer than usual, enter y to continue")
-                if(x==y):
+                if(x=="y"):
                     break
                 else:
                     continue
