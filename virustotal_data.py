@@ -1,4 +1,15 @@
 import requests
+import logging
+# from file_class import File
+
+logging.basicConfig(filename="newfile.log",
+                    format='%(asctime)s %(message)s',
+                    filemode='w')
+logger = logging.getLogger()
+ 
+# Setting the threshold of logger to DEBUG
+logger.setLevel(logging.DEBUG)
+
 class VirusTotal:
     def __init__(self):
         self.ip_validate = 'https://www.virustotal.com/vtapi/v2/ip-address/report'
@@ -13,18 +24,20 @@ class VirusTotal:
         return requests.get(self.ip_validate,params)
 
     def get_URL_data(self,url):
+        # logger.info("Chc")
         params = {'apikey':self.apikey,'resource':url}
         return requests.get(self.url_validator,params)
 
-    def file_scan(self,file_location):
-        params = {'apikey': self.apikey}
+    def file_scan_(self,file_location):
+        # params = {'apikey': self.apikey}
         # files = {'file': ('myfile.exe', open(file_location, 'rb'))}
+        logger.info("Uploading file to Virus total")
         file=open(file_location, 'rb')
         return requests.post(self.file_scan,params={
             'apikey':self.apikey
         },files={'file':file})
 
-    def file_report(self,scan_id):
+    def file_report_(self,scan_id):
         return requests.get("https://www.virustotal.com/vtapi/v2/file/report", params={
             'apikey':self.apikey,
             'resource':scan_id
