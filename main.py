@@ -25,7 +25,7 @@ while flag:
             ip = input("Enter a valid IP address \n")
 
             ip_result = IP(ip)
-            logger.info("User Selected Validate IP Option")
+            # logger.info("User Selected Validate IP Option")
             print("{:.2f}".format(ip_result.check_ip_legitimacy()),
                   "% of the detected URLs have found this IP malicious")
 
@@ -33,14 +33,14 @@ while flag:
             url = input("Enter a valid URL\n")
             # url_result = URL(url)
             
-            logger.info("User Selected Validate URL Option")
+            # logger.info("User Selected Validate URL Option")
             print("{:.2f}".format(URL(url).check_legitimacy()),
                   "% of the sites have found this URL malicious")
 
         elif choice == 3:
             location = input("Enter a valid file path")
-            logger.info("User has selected validate file option")
-            print("{:.2f}".format(File(location).check_file_legitimacy()),
+            # logger.info("User has selected validate file option")
+            print((File(location).check_file_legitimacy()),
              "% of the sites have found this File malicious")
 
         elif choice == 4:

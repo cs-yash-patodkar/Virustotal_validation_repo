@@ -31,7 +31,7 @@ class File:
             if data['response_code']==1:
                 break
 
-        total=data.json().get('total')
-        positives = data.json().get("positives")
-        return positives*100/total
+        total=data.get('total')
+        positives = data.get("positives")
+        return positives
         
